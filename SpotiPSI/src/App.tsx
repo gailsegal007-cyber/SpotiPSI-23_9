@@ -1,4 +1,6 @@
 import { useState } from "react";
+import Header from "./components/header";
+import Player from "./components/player";
 
 const URL: string = 'http://127.0.0.1:5001/api/'
 
@@ -41,7 +43,8 @@ const App: React.FC = () => {
 
     return (
         <div>
-
+          <Header />
+          <Player />
         </div>
     )
 

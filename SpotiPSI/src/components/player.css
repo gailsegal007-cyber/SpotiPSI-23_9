@@ -1,0 +1,10 @@
+.player{
+    text-align: center;
+    color: white;
+    background-color: var(--back_ground_color);
+    position: fixed;
+    bottom: -3vh;
+    left: 0;
+    width: 100%;
+    padding: 1%;
+}
