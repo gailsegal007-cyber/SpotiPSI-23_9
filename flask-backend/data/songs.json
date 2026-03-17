@@ -1,0 +1,308 @@
+[
+    {
+        "id": "1",
+        "name": "Abanibi",
+        "artist": "Izhar Cohan",
+        "album": "Abanibi"
+    },
+    {
+        "id": "2",
+        "name": "Wake Me Up",
+        "artist": "Avicii",
+        "album": "True"
+    },
+    {
+        "id": "3",
+        "name": "Three Little Birds",
+        "artist": "Bob Marley and the Wailers",
+        "album": "Exodus"
+    },
+    {
+        "id": "4",
+        "name": "Locked Out of Heaven",
+        "artist": "Burno Mars",
+        "album": "Unorthodox Jukebox"
+    },
+    {
+        "id": "5",
+        "name": "Viva La Vida",
+        "artist": "Coldplay",
+        "album": "Death and All His Friends"
+    },
+    {
+        "id": "6",
+        "name": "Alien",
+        "artist": "Dennis Lloyd",
+        "album": "Some Days"
+    },
+    {
+        "id": "7",
+        "name": "Romeo and Juliet",
+        "artist": "Dire Straits",
+        "album": "Making Movies"
+    },
+    {
+        "id": "8",
+        "name": "Sultan of Swings",
+        "artist": "Dire Straits",
+        "album": "Dire Straits"
+    },
+    {
+        "id": "9",
+        "name": "Hotel California",
+        "artist": "Eagles",
+        "album": "Hotel California"
+    },
+    {
+        "id": "10",
+        "name": "Sbangri-La",
+        "artist": "Electric Light Orchestra",
+        "album": "A New World Record"
+    },
+    {
+        "id": "11",
+        "name": "Stan",
+        "artist": "Eminem",
+        "album": "The Marshall Mather LP"
+    },
+    {
+        "id": "12",
+        "name": "I Will Survive",
+        "artist": "Gloria Gaynor",
+        "album": "Love Tracks"
+    },
+    {
+        "id": "13",
+        "name": "Gold and Bones",
+        "artist": "Friday Pilots Club",
+        "album": "Gold and Bones"
+    },
+    {
+        "id": "14",
+        "name": "Iris",
+        "artist": "Goo Goo Dolls",
+        "album": "Dizzy Up the Girls"
+    },
+    {
+        "id": "15",
+        "name": "Goodbye Yellow Brick Road",
+        "artist": "Elton John",
+        "album": "Goodbye Yellow Brick Road"
+    },
+    {
+        "id": "16",
+        "name": "Happy Together",
+        "artist": "The Turtles",
+        "album": "Happy Together"
+    },
+    {
+        "id": "17",
+        "name": "My Life",
+        "artist": "Imagine Dragons",
+        "album": "Mercury - Act 1"
+    },
+    {
+        "id": "18",
+        "name": "Natural",
+        "artist": "Imagine Dragons",
+        "album": "Origins"
+    },
+    {
+        "id": "19",
+        "name": "Shots",
+        "artist": "Imagine Dragons",
+        "album": "Smoke + Mirros"
+    },
+    {
+        "id": "20",
+        "name": "Jigsaw Falling Into Place",
+        "artist": "Radiohead",
+        "album": "In Rainbows"
+    },
+    {
+        "id": "21",
+        "name": "Wake Up",
+        "artist": "Kowloon",
+        "album": "Come Over"
+    },
+    {
+        "id": "22",
+        "name": "Just Dance",
+        "artist": "Lady Gaga",
+        "album": "The Fame"
+    },
+    {
+        "id": "23",
+        "name": "Before You Go",
+        "artist": "Lewis Capaldi",
+        "album": "Divinely Uninspired to a Hellish Extent"
+    },
+    {
+        "id": "24",
+        "name": "Uptown Funk",
+        "artist": "Bruno Mars",
+        "album": "Uptown Special"
+    },
+    {
+        "id": "25",
+        "name": "Welcome to the Black Parade",
+        "artist": "My Chemical Romance",
+        "album": "The Black Parade"
+    },
+    {
+        "id": "26",
+        "name": "Good 4 U",
+        "artist": "Olivia Rodrigo",
+        "album": "Sour"
+    },
+    {
+        "id": "27",
+        "name": "Wish You Were Here",
+        "artist": "Pink Floyd",
+        "album": "Wish You Were Here"
+    },
+    {
+        "id": "28",
+        "name": "Poison",
+        "artist": "Blake Roman",
+        "album": "Hazbin Hotel"
+    },
+    {
+        "id": "29",
+        "name": "Raining Tacos",
+        "artist": "Parry Gripp",
+        "album": "Parry Gripp Mega Party"
+    },
+    {
+        "id": "30",
+        "name": "Umbrella",
+        "artist": "Rihanna",
+        "album": "Good Girl Gone Bad"
+    },
+    {
+        "id": "31",
+        "name": "Esspreso",
+        "artist": "Sabrina Carpenter",
+        "album": "Short n' Sweet"
+    },
+    {
+        "id": "32",
+        "name": "She-Wolf",
+        "artist": "Megadeth",
+        "album": "Cryptic Writings"
+    },
+    {
+        "id": "33",
+        "name": "Something",
+        "artist": "The Beatles",
+        "album": "Something"
+    },
+    {
+        "id": "34",
+        "name": "Todo Es La Musica",
+        "artist": "Omer Adam",
+        "album": "Todo Es La Musica"
+    },
+    {
+        "id": "35",
+        "name": "Riptide",
+        "artist": "Vance Joy",
+        "album": "Dream Your Life Away"
+    },
+    {
+        "id": "36",
+        "name": "Butterflies",
+        "artist": "Ori Banai",
+        "album": "Ori Banai"
+    },
+    {
+        "id": "37",
+        "name": "Sound of a String",
+        "artist": "Eyal Golan",
+        "album": "Sound of a String"
+    },
+    {
+        "id": "38",
+        "name": "We Will Meet Again",
+        "artist": "Arik Einstein",
+        "album": "The Good and Old Israel Part 5"
+    },
+    {
+        "id": "39",
+        "name": "Zot Shema'al Le'kol HaMtzupah",
+        "artist": "Danny Sanderson",
+        "album": "Upside Story Part B"
+    },
+    {
+        "id": "40",
+        "name": "World Champion",
+        "artist": "Hanan Ben Ari",
+        "album": "Hanan Ben Ari"
+    },
+    {
+        "id": "41",
+        "name": "Except for Soccer",
+        "artist": "Hanan Ben Ari",
+        "album": "There's More Than This"
+    },
+    {
+        "id": "42",
+        "name": "To Return Home",
+        "artist": "Ishay Ribo",
+        "album": "Gray Area"
+    },
+    {
+        "id": "43",
+        "name": "In the Days",
+        "artist": "Leyli",
+        "album": "Leyli"
+    },
+    {
+        "id": "44",
+        "name": "City Night",
+        "artist": "Maor Cohen",
+        "album": "Discography"
+    },
+    {
+        "id": "45",
+        "name": "Gray Strike",
+        "artist": "Monica Sex",
+        "album": "Wound and Kisses"
+    },
+    {
+        "id": "46",
+        "name": "March 2003",
+        "artist": "Zero in Human Relations",
+        "album": "Zero in Human Relations"
+    },
+    {
+        "id": "47",
+        "name": "Medabrim",
+        "artist": "Noa Kirel",
+        "album": "Medabrim"
+    },
+    {
+        "id": "48",
+        "name": "Song for Neta",
+        "artist": "Nir Knan",
+        "album": "Song for Neta"
+    },
+    {
+        "id": "49",
+        "name": "Mindset",
+        "artist": "Stila",
+        "album": "Mindset"
+    },
+    {
+        "id": "50",
+        "name": "Old Story",
+        "artist": "Omer Adam",
+        "album": "After All the Years"
+    },
+    {
+        "id": "51",
+        "name": "Ended But is Not Done",
+        "artist": "Ilay Botner",
+        "album": "Ended But is Not Done"
+    }
+]
