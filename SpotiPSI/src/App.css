@@ -1,5 +1,11 @@
 :root{
     --color_text:rgb(253, 105, 253);
     --back_ground_color : rgb(48, 45, 45);
+    --hover_coler: rgb(127, 97, 139);
+    --selected_color: rgb(92, 60, 105);
+    --text_color : rgb(199, 199, 199);
+
+    width: 100vw;
+    height: 100vh;
 }
 
