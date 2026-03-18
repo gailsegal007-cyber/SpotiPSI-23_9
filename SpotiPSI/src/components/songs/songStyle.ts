@@ -7,15 +7,19 @@ const useStyles = makeStyles()(() => ({
         justifyContent: "space-between",
         alignItems: "center",
         color: "var(--text_color)",
-        paddingLeft:0,
-        direction: "ltr"
+        padding: "8px 0",
+        width: "100%", 
+        boxSizing: "border-box",
+        direction: "ltr",
+        borderBottom: "1px solid var(--border_color)" 
     },
 
     leftSide: {
         display: "flex",
         alignItems: "center",
         gap: "8px",
-        justifyContent: "flex-start"
+        justifyContent: "flex-start",
+        overflowX: "auto"
     },
 
     rightSide: {
@@ -35,7 +39,18 @@ const useStyles = makeStyles()(() => ({
         backgroundColor: "transparent",
         color: "var(--text_color)",
         minWidth: 0
-    }
+    },
+
+    scrollBar:{
+        display: "flex",
+        flexDirection: "column",
+        height: "100vh",       
+        width: "100%",         
+        overflowY: "auto",     
+        padding: "16px",       
+        boxSizing: "border-box",
+        backgroundColor: "var(--bg_color)"
+      }
 }));
 
 export default useStyles;

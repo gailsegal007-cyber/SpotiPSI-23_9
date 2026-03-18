@@ -19,7 +19,6 @@ const Song:React.FC<SongProps> = ({ id, name, artist, album, onPlay, onFavorite}
     return(
         <div className={classes.song}>
         
-        {/* LEFT SIDE */}
         <div className={classes.leftSide}>
             <Button
                 className={classes.button_play}
@@ -29,7 +28,6 @@ const Song:React.FC<SongProps> = ({ id, name, artist, album, onPlay, onFavorite}
             <strong>{name}</strong> by {artist} <em>({album})</em>
         </div>
 
-        {/* RIGHT SIDE */}
         <div className={classes.rightSide}>
             <Button
                 className={classes.button_favorite}
@@ -42,7 +40,6 @@ const Song:React.FC<SongProps> = ({ id, name, artist, album, onPlay, onFavorite}
                 startIcon={<FavoriteBorderIcon />}
             />
         </div>
-
     </div>
            
     )

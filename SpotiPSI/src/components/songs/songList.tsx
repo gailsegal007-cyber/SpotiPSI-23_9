@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import Song from "./song";
+import useStyles from "./songStyle";
+
 
 interface Song {
     id: string;
@@ -28,8 +30,10 @@ const SongList: React.FC<SongListProps> = ({ songs, fetchSongs, setSongs, route 
         return <p>Loading songs...</p>;
     }
 
+    const { classes } = useStyles()
+
     return (
-        <div>
+        <div className={classes.scrollBar}>
             {songs.map(song => (
                 <Song 
                     key={song.id} 
