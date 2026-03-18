@@ -1,35 +1,55 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
 
-function App() {
-  const [count, setCount] = useState(0)
+const URL: string = 'http://127.0.0.1:5001/api/'
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+
+interface Song {
+    id: string,
+    name: string,
+    artist: string,
+    album: string
 }
+
+
+const App: React.FC = () => {
+
+    const [allSongs, setAllSongs] = useState<Song[]>([])
+
+    /**
+     * 
+     * @param route the route to the array we want to get. Either "songs", "playlists" or "favorites"
+     * @param setFunction a set function that updates the array
+     */
+    const fetchSongs = async <T,>(route: "songs" | "playlists" | "favorites", setFunction: React.Dispatch<React.SetStateAction<T[]>>) => {
+
+        const urlWithRoute = `${URL}/${route}`
+        try {
+
+            //gets the data from the server
+            const response = await fetch(urlWithRoute);
+            const data = await response.json();
+
+            setFunction(() => data);
+
+        } catch (error) {
+
+            console.log(error);
+
+        }
+    }
+
+
+    return (
+        <div>
+
+        </div>
+    )
+
+
+
+
+
+}
+
 
 export default App
