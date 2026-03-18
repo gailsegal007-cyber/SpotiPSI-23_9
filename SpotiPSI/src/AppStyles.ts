@@ -10,7 +10,8 @@ const useStyles = makeStyles()(() => ({
     mainArea : {
         display: "flex",
         height: '90%',
-        width: "100%"
+        width: "100%",
+        gap: "2%"
     },
 
     sidebar: {

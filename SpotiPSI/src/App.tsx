@@ -5,8 +5,12 @@ import "./App.css";
 import SideBar from "./components/sidebar/Sidebar";
 import SongList from "./components/songs/songList"
 import useStyles from "./AppStyles";
+import FavoritesPage from "./components/favoritesPage/FavoritesPage";
+import { useEffect } from "react";
 
-const URL: string = 'http://127.0.0.1:5001/api/'
+
+
+const URL: string = 'http://127.0.0.1:5001/api'
 
 
 interface Song {
@@ -16,12 +20,20 @@ interface Song {
     album: string
 }
 
+interface Playlist {
+    id: string,
+    name: string,
+    songIds: string[]
+}
+
 
 const App: React.FC = () => {
     const {classes} = useStyles();
 
     const [allSongs, setAllSongs] = useState<Song[]>([]);
-    const [favoriteSongs, setFavoriteSongs] = useState<string[]>([]);
+    const [favoriteSongs, setFavoriteSongs] = useState<string[]>([])
+    const [allPlaylists, setAllPlaylists] = useState<Playlist[]>([])
+
     const [currentPage, setCurrentPage] = useState<"songs" | "playlists" | "favorites">("songs");
 
     /**
@@ -46,16 +58,32 @@ const App: React.FC = () => {
         }
     }
 
+    /**
+     * On the first render, get all the data from the server
+     */
     useEffect(() => {
         fetchSongs<Song>("songs", setAllSongs);
-        fetchSongs<string>("favorites", setFavoriteSongs);
-    }, []);
+        fetchSongs<string>("favorites",setFavoriteSongs);
+        fetchSongs<Playlist>("playlists", setAllPlaylists);
+        console.log("hello fetched")
+    },[])
+
 
     return (
         <div className={classes.page}>
           <Header />
           <div className={classes.mainArea}>
             <SideBar setCurrentPage={setCurrentPage} currentPage={currentPage}/>
+            {currentPage === "songs"? (
+                <div>songs</div> //change to the main page
+            ):currentPage === "favorites"? (
+                 
+                    <FavoritesPage songsList={allSongs} favoriteSongsId={favoriteSongs}/>
+                
+            ): (
+                <div>playlists</div> //change  to the playlists page
+            )
+        }   
             <SongList songs={allSongs} favoriteSongs={favoriteSongs} />
           </div>
           <Player />
