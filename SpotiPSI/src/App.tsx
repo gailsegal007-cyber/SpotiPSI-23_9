@@ -2,6 +2,7 @@ import { useState } from "react";
 import Header from "./components/header/header";
 import Player from "./components/player/player";
 import "./App.css";
+import SideBar from "./components/sidebar/Sidebar";
 
 const URL: string = 'http://127.0.0.1:5001/api/'
 
@@ -16,7 +17,8 @@ interface Song {
 
 const App: React.FC = () => {
 
-    const [allSongs, setAllSongs] = useState<Song[]>([])
+    const [allSongs, setAllSongs] = useState<Song[]>([]);
+    const [currentPage, setCurrentPage] = useState<"songs" | "playlists" | "favorites">("songs");
 
     /**
      * 
