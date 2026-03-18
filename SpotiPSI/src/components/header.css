@@ -1,9 +1,0 @@
-.header{
-    color: var(--color_text);
-    background-color: var(--back_ground_color);
-    position: fixed;
-    top: -3vh;
-    left: 0;
-    width: 98%;
-    padding: 1%;
-}

@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Header from "./components/header";
-import Player from "./components/player";
+import Header from "./components/header/header";
+import Player from "./components/player/player";
 
 const URL: string = 'http://127.0.0.1:5001/api/'
 
