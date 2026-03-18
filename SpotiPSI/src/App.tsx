@@ -3,6 +3,7 @@ import Header from "./components/header/header";
 import Player from "./components/player/player";
 import "./App.css";
 import SideBar from "./components/sidebar/Sidebar";
+import SongList from "./components/songs/songList"
 import useStyles from "./AppStyles";
 
 const URL: string = 'http://127.0.0.1:5001/api/'
@@ -49,6 +50,7 @@ const App: React.FC = () => {
           <Header />
           <div className={classes.mainArea}>
             <SideBar setCurrentPage={setCurrentPage} currentPage={currentPage}/>
+            <SongList songs={allSongs} fetchSongs={fetchSongs} setSongs={setAllSongs}/>
           </div>
           <Player />
         </div>
