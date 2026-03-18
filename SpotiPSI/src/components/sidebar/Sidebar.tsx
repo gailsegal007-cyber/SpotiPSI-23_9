@@ -36,22 +36,22 @@ const SideBar : React.FC<Prop> = (prop:Prop) => {
         <div className={classes.menu}>
             <MenuList >
                 <MenuItem className={prop.currentPage === "songs" ?classes.clickedItem :classes.regularItem} onClick={() => menuItemClicked("songs")}>
-                    <ListItemText>{allSongsText}</ListItemText>
-                    <ListItemIcon>
+                    <ListItemIcon className={classes.icon}>
                         <HomeIcon />
                     </ListItemIcon>
+                    <ListItemText>{allSongsText}</ListItemText>
                 </MenuItem>
                 <MenuItem className={prop.currentPage === "playlists" ?classes.clickedItem :classes.regularItem} onClick={() => menuItemClicked("playlists")} >
-                    <ListItemText>{playlistText}</ListItemText>
-                    <ListItemIcon>
+                    <ListItemIcon className={classes.icon}>
                         <LibraryMusicIcon />
                     </ListItemIcon>
+                    <ListItemText>{playlistText}</ListItemText>
                 </MenuItem>
                 <MenuItem className={prop.currentPage === "favorites" ?classes.clickedItem :classes.regularItem} onClick={() => menuItemClicked("favorites")}>
-                    <ListItemText>{favoritesText}</ListItemText>
-                    <ListItemIcon>
+                    <ListItemIcon className={classes.icon}>
                         <FavoriteIcon />
                     </ListItemIcon>
+                    <ListItemText>{favoritesText}</ListItemText>
                 </MenuItem>
             </MenuList>
         </div>

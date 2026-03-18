@@ -3,6 +3,7 @@ import Header from "./components/header/header";
 import Player from "./components/player/player";
 import "./App.css";
 import SideBar from "./components/sidebar/Sidebar";
+import useStyles from "./AppStyles";
 
 const URL: string = 'http://127.0.0.1:5001/api/'
 
@@ -16,7 +17,7 @@ interface Song {
 
 
 const App: React.FC = () => {
-
+    const {classes} = useStyles();
     const [allSongs, setAllSongs] = useState<Song[]>([]);
     const [currentPage, setCurrentPage] = useState<"songs" | "playlists" | "favorites">("songs");
 
@@ -44,8 +45,11 @@ const App: React.FC = () => {
     }
 
     return (
-        <div>
+        <div className={classes.page}>
           <Header />
+          <div className={classes.mainArea}>
+            <SideBar setCurrentPage={setCurrentPage} currentPage={currentPage}/>
+          </div>
           <Player />
         </div>
     )
