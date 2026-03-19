@@ -15,9 +15,11 @@ interface SongListProps {
     setFavoriteSongs: React.Dispatch<React.SetStateAction<string[]>>;
     addToPlaylist?: (id: string) => void;
 
+    playSongFunction : React.RefObject<((song: Song) => void) |null>; //prop drilling to song
+    songQueue: React.RefObject<Song[]>;
 }
 
-const SongList: React.FC<SongListProps> = ({ songs, favoriteSongs, setFavoriteSongs, addToPlaylist }) => {
+const SongList: React.FC<SongListProps> = ({ songs, favoriteSongs, setFavoriteSongs, addToPlaylist , playSongFunction, songQueue}) => {
 
 
     if (songs.length === 0) {
@@ -25,6 +27,8 @@ const SongList: React.FC<SongListProps> = ({ songs, favoriteSongs, setFavoriteSo
     }
 
     const { classes } = useStyles()
+
+    songQueue.current = songs; //sets the queue to the current list displayed on the screen
 
     return (
         <div className={classes.scrollBar}>
@@ -35,6 +39,7 @@ const SongList: React.FC<SongListProps> = ({ songs, favoriteSongs, setFavoriteSo
                     f_songs={favoriteSongs}
                     setFavoriteSongs={setFavoriteSongs}
                     addToPlaylist={addToPlaylist ? () => addToPlaylist(song.id) : undefined}
+                    playSongFunction={playSongFunction}
                 />
             ))}
         </div>

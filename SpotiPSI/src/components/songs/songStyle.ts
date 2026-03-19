@@ -44,7 +44,7 @@ const useStyles = makeStyles()(() => ({
     scrollBar:{
         display: "flex",
         flexDirection: "column",
-        height: "100vh",       
+        height: "80%",       
         width: "100%",         
         overflowY: "auto",     
         padding: "16px",       

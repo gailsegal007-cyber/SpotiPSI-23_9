@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Header from "./components/header/header";
 import Player from "./components/player/player";
 import "./App.css";
@@ -31,12 +31,19 @@ const App: React.FC = () => {
     const {classes} = useStyles();
 
     const [allSongs, setAllSongs] = useState<Song[]>([]);
-    const [favoriteSongs, setFavoriteSongs] = useState<string[]>([])
-    const [allPlaylists, setAllPlaylists] = useState<Playlist[]>([])
+    const [favoriteSongs, setFavoriteSongs] = useState<string[]>([]);
+    const [allPlaylists, setAllPlaylists] = useState<Playlist[]>([]);
 
     const [currentPage, setCurrentPage] = useState<Page>("songs");
     //const [currentPage, setCurrentPage] = useState<"songs" | "playlists" | "favorites" | "playlistSongs">("songs");
     const [selectedPlaylistId, setSelectedPlaylistId] = useState<string | null>(null);
+
+    const audioRef = useRef<HTMLAudioElement | null>(null); //a ref which refrences the audio element
+
+    const playSongFunction = useRef<((song: Song) => void) |null>(null); //a ref which gets the function that plays a song
+
+    const songQueue = useRef<Song[]>([]); // a ref holding the current song queue
+
 
     /**
      * 
@@ -67,7 +74,6 @@ const App: React.FC = () => {
         fetchSongs<Song>("songs", setAllSongs);
         fetchSongs<string>("favorites",setFavoriteSongs);
         fetchSongs<Playlist>("playlists", setAllPlaylists);
-        console.log("hello fetched")
     },[])
 
     const goToPlaylist = (id: string) => {
@@ -85,18 +91,19 @@ const App: React.FC = () => {
           <Header />
           <div className={classes.mainArea}>
             <SideBar setCurrentPage={setCurrentPage as React.Dispatch<React.SetStateAction<"songs" | "playlists" | "favorites">>} currentPage={currentPage as "songs" | "playlists" | "favorites"} />
-            {currentPage === "songs"? (
-                <AllSongs songsList={allSongs} favoriteSongsId={favoriteSongs} setFavoriteSongs={setFavoriteSongs}/>
+            {currentPage === "songs"? ( 
+                <AllSongs songsList={allSongs} favoriteSongsId={favoriteSongs} setFavoriteSongs={setFavoriteSongs} playSongFunction={playSongFunction} songQueue={songQueue}/>
             ):currentPage === "favorites"? (
                  
-                <FavoritesPage songsList={allSongs} favoriteSongsId={favoriteSongs}  setFavoriteSongs={setFavoriteSongs}/>
+                <FavoritesPage songsList={allSongs} favoriteSongsId={favoriteSongs}  setFavoriteSongs={setFavoriteSongs} playSongFunction={playSongFunction} songQueue={songQueue}/>
                 
             ): (
                  <PlaylistsPage songsList={allSongs} playlist={allPlaylists} favoriteSongs={favoriteSongs} setFavoriteSongs={setFavoriteSongs} setAllPlaylists={setAllPlaylists} goToPlaylist={goToPlaylist}/>
             )
         }   
           </div>
-          <Player />
+          <Player audioRef={audioRef} playSongFunction={playSongFunction} songQueue={songQueue}/>
+            <audio controls= {false} src="" autoPlay = {true} ref={audioRef} ></audio>
         </div>
     )
 

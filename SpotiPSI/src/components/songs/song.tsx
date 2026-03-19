@@ -11,6 +11,7 @@ interface Props {
     f_songs: string[];
     setFavoriteSongs: React.Dispatch<React.SetStateAction<string[]>>;
     addToPlaylist?: (id: string) => void;
+    playSongFunction : React.RefObject<((song: SongProps) => void) |null>;
 }
 
 export interface SongProps {
@@ -26,7 +27,9 @@ interface Message {
 
 const BASE_URL: string = 'http://127.0.0.1:5001/api/favorites'
 
-const Song: React.FC<Props> = ({ song, f_songs, setFavoriteSongs , addToPlaylist}) => {
+
+//A component for a basic song
+const Song: React.FC<Props> = ({ song, f_songs, setFavoriteSongs, playSongFunction , addToPlaylist}) => {
 
     const { classes } = useStyles();
 
@@ -84,6 +87,13 @@ const Song: React.FC<Props> = ({ song, f_songs, setFavoriteSongs , addToPlaylist
         }
     }
 
+    //plays the selected song
+    const chooseSong = () => {
+        if (playSongFunction.current !== null){
+        playSongFunction?.current(song);
+        }
+        
+    }
 
     return (
         <div className={classes.song}>
@@ -92,6 +102,7 @@ const Song: React.FC<Props> = ({ song, f_songs, setFavoriteSongs , addToPlaylist
                 <Button
                     className={classes.button_play}
                     startIcon={<PlayArrowIcon />}
+                    onClick={chooseSong} //plays the chosen song
                 />
                 <strong>{song.name}</strong> by {song.artist} <em>({song.album})</em>
             </div>
