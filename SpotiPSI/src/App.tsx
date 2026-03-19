@@ -3,7 +3,7 @@ import Header from "./components/header/header";
 import Player from "./components/player/player";
 import "./App.css";
 import SideBar from "./components/sidebar/Sidebar";
-import SongList from "./components/songs/songList"
+import PlaylistsPage from "./components/playlistsPage/playlistsPage";
 import useStyles from "./AppStyles";
 import FavoritesPage from "./components/favoritesPage/FavoritesPage";
 import AllSongs from "./components/allSongs/AllSongs";
@@ -22,11 +22,10 @@ interface Song {
 }
 
 interface Playlist {
-    id: string,
-    name: string,
-    songIds: string[]
+    id: string;
+    name: string;
+    songsIds: string[];
 }
-
 
 const App: React.FC = () => {
     const {classes} = useStyles();
@@ -82,7 +81,7 @@ const App: React.FC = () => {
                 <FavoritesPage songsList={allSongs} favoriteSongsId={favoriteSongs}  setFavoriteSongs={setFavoriteSongs}/>
                 
             ): (
-                <div>playlists</div> //change  to the playlists page
+                 <PlaylistsPage songsList={allSongs} playlist={allPlaylists} favoriteSongs={favoriteSongs} setFavoriteSongs={setFavoriteSongs} setAllPlaylists={setAllPlaylists}/>
             )
         }   
           </div>

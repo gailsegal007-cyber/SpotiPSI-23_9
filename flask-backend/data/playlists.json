@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "id": "d4533a84-0fe6-4d76-bd75-a6563af323f9",
+    "name": "chill",
+    "songIds": []
+  },
+  {
+    "id": "855e79af-cd6f-4788-883b-11a60fa53db5",
+    "name": "song",
+    "songIds": []
+  }
+]
