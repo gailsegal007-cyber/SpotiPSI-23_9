@@ -9,7 +9,8 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 interface Props {
     song: SongProps;
     f_songs: string[];
-    setFavoriteSongs: React.Dispatch<React.SetStateAction<string[]>>
+    setFavoriteSongs: React.Dispatch<React.SetStateAction<string[]>>;
+    addToPlaylist?: (id: string) => void;
 }
 
 export interface SongProps {
@@ -25,7 +26,7 @@ interface Message {
 
 const BASE_URL: string = 'http://127.0.0.1:5001/api/favorites'
 
-const Song: React.FC<Props> = ({ song, f_songs, setFavoriteSongs }) => {
+const Song: React.FC<Props> = ({ song, f_songs, setFavoriteSongs , addToPlaylist}) => {
 
     const { classes } = useStyles();
 
@@ -96,10 +97,14 @@ const Song: React.FC<Props> = ({ song, f_songs, setFavoriteSongs }) => {
             </div>
 
             <div className={classes.rightSide}>
+                {addToPlaylist && (
                 <Button
                     className={classes.button_favorite}
                     startIcon={<AddIcon />}
+                    onClick={() => addToPlaylist && addToPlaylist(song.id)}
+                    disabled={!addToPlaylist}
                 />
+                )}
                 <Button
                     className={classes.button_favorite}
                     startIcon={

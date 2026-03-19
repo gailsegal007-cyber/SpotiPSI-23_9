@@ -3,12 +3,10 @@ import Header from "./components/header/header";
 import Player from "./components/player/player";
 import "./App.css";
 import SideBar from "./components/sidebar/Sidebar";
-import SongList from "./components/songs/songList"
+import PlaylistsPage from "./components/playlistsPage/playlistsPage";
 import useStyles from "./AppStyles";
 import FavoritesPage from "./components/favoritesPage/FavoritesPage";
 import AllSongs from "./components/allSongs/AllSongs";
-
-
 
 
 const URL: string = 'http://127.0.0.1:5001/api'
@@ -22,11 +20,12 @@ interface Song {
 }
 
 interface Playlist {
-    id: string,
-    name: string,
-    songIds: string[]
+    id: string;
+    name: string;
+    songsIds: string[];
 }
 
+type Page = "songs" | "playlists" | "favorites" | "playlistSongs";
 
 const App: React.FC = () => {
     const {classes} = useStyles();
@@ -35,7 +34,9 @@ const App: React.FC = () => {
     const [favoriteSongs, setFavoriteSongs] = useState<string[]>([])
     const [allPlaylists, setAllPlaylists] = useState<Playlist[]>([])
 
-    const [currentPage, setCurrentPage] = useState<"songs" | "playlists" | "favorites">("songs");
+    const [currentPage, setCurrentPage] = useState<Page>("songs");
+    //const [currentPage, setCurrentPage] = useState<"songs" | "playlists" | "favorites" | "playlistSongs">("songs");
+    const [selectedPlaylistId, setSelectedPlaylistId] = useState<string | null>(null);
 
     /**
      * 
@@ -69,12 +70,21 @@ const App: React.FC = () => {
         console.log("hello fetched")
     },[])
 
+    const goToPlaylist = (id: string) => {
+        setSelectedPlaylistId(id);
+        setCurrentPage("playlistSongs");
+    };
+    
+    const selectedPlaylist = allPlaylists.find(p => p.id === selectedPlaylistId);
+    const playlistSongs = selectedPlaylist
+        ? allSongs.filter(s => selectedPlaylist.songsIds.includes(s.id))
+        : [];
 
     return (
         <div className={classes.page}>
           <Header />
           <div className={classes.mainArea}>
-            <SideBar setCurrentPage={setCurrentPage} currentPage={currentPage}/>
+            <SideBar setCurrentPage={setCurrentPage as React.Dispatch<React.SetStateAction<"songs" | "playlists" | "favorites">>} currentPage={currentPage as "songs" | "playlists" | "favorites"} />
             {currentPage === "songs"? (
                 <AllSongs songsList={allSongs} favoriteSongsId={favoriteSongs} setFavoriteSongs={setFavoriteSongs}/>
             ):currentPage === "favorites"? (
@@ -82,7 +92,7 @@ const App: React.FC = () => {
                 <FavoritesPage songsList={allSongs} favoriteSongsId={favoriteSongs}  setFavoriteSongs={setFavoriteSongs}/>
                 
             ): (
-                <div>playlists</div> //change  to the playlists page
+                 <PlaylistsPage songsList={allSongs} playlist={allPlaylists} favoriteSongs={favoriteSongs} setFavoriteSongs={setFavoriteSongs} setAllPlaylists={setAllPlaylists} goToPlaylist={goToPlaylist}/>
             )
         }   
           </div>
