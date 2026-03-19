@@ -6,7 +6,8 @@ import SideBar from "./components/sidebar/Sidebar";
 import SongList from "./components/songs/songList"
 import useStyles from "./AppStyles";
 import FavoritesPage from "./components/favoritesPage/FavoritesPage";
-import { useEffect } from "react";
+import AllSongs from "./components/allSongs/AllSongs";
+
 
 
 
@@ -75,16 +76,15 @@ const App: React.FC = () => {
           <div className={classes.mainArea}>
             <SideBar setCurrentPage={setCurrentPage} currentPage={currentPage}/>
             {currentPage === "songs"? (
-                <div>songs</div> //change to the main page
+                <AllSongs songsList={allSongs} favoriteSongsId={favoriteSongs} setFavoriteSongs={setFavoriteSongs}/>
             ):currentPage === "favorites"? (
                  
-                    <FavoritesPage songsList={allSongs} favoriteSongsId={favoriteSongs}/>
+                <FavoritesPage songsList={allSongs} favoriteSongsId={favoriteSongs}  setFavoriteSongs={setFavoriteSongs}/>
                 
             ): (
                 <div>playlists</div> //change  to the playlists page
             )
         }   
-            <SongList songs={allSongs} favoriteSongs={favoriteSongs} />
           </div>
           <Player />
         </div>

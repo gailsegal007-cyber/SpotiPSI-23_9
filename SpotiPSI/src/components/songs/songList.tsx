@@ -12,9 +12,10 @@ interface Song {
 interface SongListProps {
     songs: Song[];
     favoriteSongs: string[];
+    setFavoriteSongs: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
-const SongList: React.FC<SongListProps> = ({ songs, favoriteSongs}) => {
+const SongList: React.FC<SongListProps> = ({ songs, favoriteSongs, setFavoriteSongs }) => {
 
 
     if (songs.length === 0) {
@@ -26,10 +27,11 @@ const SongList: React.FC<SongListProps> = ({ songs, favoriteSongs}) => {
     return (
         <div className={classes.scrollBar}>
             {songs.map(song => (
-                <Song 
-                    key={song.id} 
-                    song={song} 
+                <Song
+                    key={song.id}
+                    song={song}
                     f_songs={favoriteSongs}
+                    setFavoriteSongs={setFavoriteSongs}
                 />
             ))}
         </div>
