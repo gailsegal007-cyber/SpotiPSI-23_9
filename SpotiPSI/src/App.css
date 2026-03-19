@@ -4,6 +4,7 @@
     --hover_coler: rgb(127, 97, 139);
     --selected_color: rgb(92, 60, 105);
     --text_color : rgb(199, 199, 199);
+    --song_hover_color:rgb(29, 29, 29);
 
     width: 100vw;
     height: 100vh;
