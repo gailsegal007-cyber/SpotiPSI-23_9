@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import Song from "./song";
 import useStyles from "./songStyle";
 
@@ -12,19 +11,11 @@ interface Song {
 
 interface SongListProps {
     songs: Song[];
-    fetchSongs: <T,>(
-        route: "songs" | "playlists" | "favorites",
-        setFunction: React.Dispatch<React.SetStateAction<T[]>>
-    ) => Promise<void>;
-    setSongs: React.Dispatch<React.SetStateAction<Song[]>>;
-    route?: "songs" | "playlists" | "favorites"; 
+    favoriteSongs: string[];
 }
 
-const SongList: React.FC<SongListProps> = ({ songs, fetchSongs, setSongs, route = "songs" }) => {
+const SongList: React.FC<SongListProps> = ({ songs, favoriteSongs}) => {
 
-    useEffect(() => {
-        fetchSongs<Song>(route, setSongs);
-    }, [fetchSongs, setSongs, route]);
 
     if (songs.length === 0) {
         return <p>Loading songs...</p>;
@@ -37,9 +28,8 @@ const SongList: React.FC<SongListProps> = ({ songs, fetchSongs, setSongs, route 
             {songs.map(song => (
                 <Song 
                     key={song.id} 
-                    {...song} 
-                    //onPlay={onPlay} 
-                    //onFavorite={onFavorite} 
+                    song={song} 
+                    f_songs={favoriteSongs}
                 />
             ))}
         </div>

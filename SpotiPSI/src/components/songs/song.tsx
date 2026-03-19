@@ -4,45 +4,56 @@ import { Button } from "@mui/material";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import AddIcon from '@mui/icons-material/Add';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+
+interface Props {
+    song: SongProps;
+    f_songs: string[];
+}
 
 export interface SongProps {
     id: string;
     name: string;
     artist: string;
     album: string;
-    onPlay?: (id: string) => void;      
-    onFavorite?: (id: string) => void;  
 }
 
-const Song:React.FC<SongProps> = ({ id, name, artist, album, onPlay, onFavorite}) => {
-    const { classes } = useStyles()
-    return(
-        <div className={classes.song}>
+const Song: React.FC<Props> = ({ song, f_songs }) => {
+
+    const is_favorite = () => {
         
-        <div className={classes.leftSide}>
-            <Button
-                className={classes.button_play}
-                onClick={() => onPlay && onPlay(id)}
-                startIcon={<PlayArrowIcon />}
-            />
-            <strong>{name}</strong> by {artist} <em>({album})</em>
-        </div>
+        return f_songs.includes(song.id);
+    };
+    console.log("Song:", song.name, "is favorite?", is_favorite());
 
-        <div className={classes.rightSide}>
-            <Button
-                className={classes.button_favorite}
-                onClick={() => onFavorite && onFavorite(id)}
-                startIcon={<AddIcon />}
-            />
-            <Button
-                className={classes.button_favorite}
-                onClick={() => onFavorite && onFavorite(id)}
-                startIcon={<FavoriteBorderIcon />}
-            />
+    const { classes } = useStyles();
+
+    return (
+        <div className={classes.song}>
+            
+            <div className={classes.leftSide}>
+                <Button
+                    className={classes.button_play}
+                    startIcon={<PlayArrowIcon />}
+                />
+                <strong>{song.name}</strong> by {song.artist} <em>({song.album})</em>
+            </div>
+
+            <div className={classes.rightSide}>
+                <Button
+                    className={classes.button_favorite}
+                    startIcon={<AddIcon />}
+                />
+                <Button
+                    className={classes.button_favorite}
+                    startIcon={
+                        is_favorite() ? <FavoriteIcon /> : <FavoriteBorderIcon />
+                    }
+                />
+                
+            </div>
         </div>
-    </div>
-           
-    )
-}
+    );
+};
 
 export default Song;
