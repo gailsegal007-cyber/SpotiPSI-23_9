@@ -3,3 +3,4 @@
 #py
 flask-backend/.idea/
 flask-backend/__pycache__/
+flask-backend/data/

@@ -8,9 +8,20 @@ const useStyles = makeStyles()(() => ({
         flexDirection: 'column',
     },
     mainArea : {
-        height: '90%'
-    }
+        display: "flex",
+        height: '90%',
+        width: "100%",
+        gap: "2%"
+    },
 
+    sidebar: {
+        width: "250px"
+    },
+
+    content: {
+        flex:1,
+        overflowY: "auto"
+    }
 }));
 
 export default useStyles;
